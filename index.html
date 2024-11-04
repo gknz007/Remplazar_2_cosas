@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remplazador texto palabras</title>
+</head>
+<body>
+    <h1>Reemplazar Palabras en Texto</h1>
+    <textarea id="inputText" rows="10" cols="50" placeholder="Introduce tu texto aquí..."></textarea><br>
+    
+    <label for="wordToReplace1">Palabra a reemplazar 1:</label>
+    <input type="text" id="wordToReplace1" placeholder="Ej. Fuego"><br>
+    <label for="replacementWord1">Palabra de reemplazo 1.5:</label>
+    <input type="text" id="replacementWord1" placeholder="Ej. Agua"><br>
+    
+    <label for="wordToReplace2">Palabra a reemplazar 2:</label>
+    <input type="text" id="wordToReplace2" placeholder="Ej. Rojo"><br>
+    <label for="replacementWord2">Palabra de reemplazo 2.5:</label>
+    <input type="text" id="replacementWord2" placeholder="Ej. Azul"><br>
+    
+    <button id="replaceButton">Reemplazar</button>
+    
+    <h2>Texto Final:</h2>
+    <div id="resultText" style="border: 1px solid #000; padding: 10px;"></div>
+
+    <script>
+        document.getElementById('replaceButton').addEventListener('click', function() {
+           
+            const text = document.getElementById('inputText').value;
+            const wordToReplace1 = document.getElementById('wordToReplace1').value;
+            const replacementWord1 = document.getElementById('replacementWord1').value;
+            const wordToReplace2 = document.getElementById('wordToReplace2').value;
+            const replacementWord2 = document.getElementById('replacementWord2').value;
+
+            
+            let result = text.replace(new RegExp(wordToReplace1, 'gi'), replacementWord1);
+            result = result.replace(new RegExp(wordToReplace2, 'gi'), replacementWord2);
+
+            document.getElementById('resultText').innerText = result;
+        });
+    </script>
+</body>
+</html>
